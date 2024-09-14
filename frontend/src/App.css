@@ -1,0 +1,57 @@
+.customShadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/***user table***/
+.userTable {
+  @apply bg-white;
+}
+.userTable th {
+  @apply border text-base font-medium;
+}
+
+.userTable td {
+  @apply border text-base text-center;
+}
+
+/* Custom Scrollbar for small screens */
+.userTable-wrapper::-webkit-scrollbar {
+  height: 5px; /* Height of horizontal scrollbar */
+  width: 10px;
+}
+
+.userTable-wrapper::-webkit-scrollbar-thumb {
+  background-color: black; /* Thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.userTable-wrapper::-webkit-scrollbar-track {
+  background-color: #e2e8f0; /* Track color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* hiding scroll bar of product Upload Form */
+.productUploadForm::-webkit-scrollbar {
+  display: none;
+}
+
+/* hiding scroll bar */
+.scrollbarHide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom Scrollbar for client side screens */
+.clientSideScrollbar::-webkit-scrollbar {
+  height: 5px; /* Height of horizontal scrollbar */
+  width: 10px;
+}
+
+.clientSideScrollbar::-webkit-scrollbar-thumb {
+  background-color: #696b6d; /* Thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.clientSideScrollbar::-webkit-scrollbar-track {
+  background-color: #a1a3a4; /* Track color */
+  border-radius: 10px; /* Rounded corners */
+}
