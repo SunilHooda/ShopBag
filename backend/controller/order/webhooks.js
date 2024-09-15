@@ -1,5 +1,5 @@
 const stripe = require("stripe")(
-  "sk_test_51PybasCCIYRKpwABEdHCFgWTDNEpUTHQoQUJMHLrErGJyHg89uy71MyuH3qpVqnNcXJEBOs5WUdfdjh3aFbdtqyJ00GtcZFQRv"
+  "rk_test_51PybasCCIYRKpwABVB2RgEh7UDKle1aZs0G5uCGYRjozqUGe8Xb9nE9J2Ol9Z6tkXqioztW6EPMDGmNkTrxDUhZc00LtERhxEq"
 );
 const orderProductModel = require("../../models/orderProductModel");
 const addToCartModel = require("../../models/cartProductModel");
