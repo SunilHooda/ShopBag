@@ -15,7 +15,7 @@ const SingleCategoryProductCard = ({ loading, data = [] }) => {
     context.fetchCartProductsCount();
   };
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10 p-0 transition-all duration-500 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-9 pr-2 transition-all duration-500 ">
       {loading
         ? cardSkeleton.map((_, index) => (
             <div

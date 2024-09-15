@@ -23,9 +23,10 @@ const SingleCategoryProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState(
     urlCategoryListObject
   );
-  const [filterCategoryList, setFilterCategoryList] = useState([]);
+  const [filterCategoryList, setFilterCategoryList] =
+    useState(urlCategoryListArray); // Initialize with URL categories
 
-  const [sortBy, setSortBy] = useState("");
+  const [sortBy, setSortBy] = useState("date");
 
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
@@ -85,13 +86,26 @@ const SingleCategoryProducts = () => {
     navigate("/product-category?" + urlFormat.join(""));
   }, [selectedCategory, navigate]);
 
+  // Fetch data on initial render
   useEffect(() => {
-    fetchData();
+    if (urlCategoryListArray.length > 0) {
+      // Initial check for URL categories
+      setFilterCategoryList(urlCategoryListArray);
+      fetchData();
+    }
+  }, []); // Run on initial render
+
+  // Fetch data whenever filterCategoryList or sortBy changes
+  useEffect(() => {
+    if (filterCategoryList.length > 0) {
+      // Ensure categories are present before fetching
+      fetchData();
+    }
   }, [filterCategoryList, sortBy]);
 
   return (
     <div className="container mx-auto md:px-2 lg:px-8  md:min-h-[calc(100vh-130px)] md:max-h-[calc(100vh-130px)] md:overflow-hidden  ">
-      <div className="flex flex-col md:grid grid-cols-[200px,1fr] pt-1 md:pt-4 ">
+      <div className="flex flex-col md:grid grid-cols-[200px,1fr] pt-1 md:pt-[10px] ">
         {/* Sorting Filtering */}
         <div className="bg-white p-2 h-fit ">
           {/* Sort By */}
@@ -108,6 +122,17 @@ const SingleCategoryProducts = () => {
 
             {sortDropdownOpen && (
               <form className="text-sm flex flex-col gap-2 py-2">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="radio"
+                    name="sortBy"
+                    value={"date"}
+                    checked={sortBy === "date"}
+                    onChange={handleOnChangeSortBy}
+                    className="cursor-pointer"
+                  />
+                  <label>Date - Newest First</label>
+                </div>
                 <div className="flex items-center gap-3">
                   <input
                     type="radio"

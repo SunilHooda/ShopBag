@@ -235,6 +235,7 @@ const SingleProductDetailsPage = () => {
         <RelatedProductSection
           category={data.category}
           mainText={"Related Products"}
+          excludeProductId={params?.id}
         />
       )}
     </div>

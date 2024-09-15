@@ -7,10 +7,10 @@ import addToCart from "../helpers/addToCart";
 import scrollToTop from "../helpers/scrollToTop";
 import Context from "../context/context";
 
-const RelatedProductSection = ({ category, mainText }) => {
+const RelatedProductSection = ({ category, mainText, excludeProductId }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const cardSkeleton = new Array(13).fill(null);
+  const cardSkeleton = new Array(8).fill(null);
 
   const fetchData = async () => {
     setLoading(true);
@@ -55,57 +55,60 @@ const RelatedProductSection = ({ category, mainText }) => {
                 </div>
               </div>
             ))
-          : data.map((product) => (
-              <Link
-                to={`/product/${product?._id}`}
-                key={product?._id}
-                className="w-full bg-white rounded shadow"
-                onClick={scrollToTop}
-              >
-                <div className="bg-slate-200 h-52 p-4 flex justify-center items-center">
-                  <img
-                    src={product.productImage[0]}
-                    alt={product.productName}
-                    className="object-scale-down h-full hover:scale-110 transition-all duration-500 mix-blend-multiply"
-                  />
-                </div>
-                <div className="p-2 gap-2 md:gap-3 md:p-4 md:py-3 grid w-full">
-                  <div className="w-full h-fit flex flex-col">
-                    <h2 className="font-medium text-base md:text-lg text-ellipsis line-clamp-2 text-black">
-                      {product?.productName?.replace(/boAt/gi, "").trim()}
-                    </h2>
-                    <p className="capitalize text-slate-500">
-                      {product?.category}
-                    </p>
+          : data
+              .filter((product) => product._id !== excludeProductId)
+              .slice(0, 8)
+              .map((product) => (
+                <Link
+                  to={`/product/${product?._id}`}
+                  key={product?._id}
+                  className="w-full bg-white rounded shadow"
+                  onClick={scrollToTop}
+                >
+                  <div className="bg-slate-200 h-52 p-4 flex justify-center items-center">
+                    <img
+                      src={product.productImage[0]}
+                      alt={product.productName}
+                      className="object-scale-down h-full hover:scale-110 transition-all duration-500 mix-blend-multiply"
+                    />
                   </div>
+                  <div className="p-2 gap-2 md:gap-3 md:p-4 md:py-3 grid w-full">
+                    <div className="w-full h-fit flex flex-col">
+                      <h2 className="font-medium text-base md:text-lg text-ellipsis line-clamp-2 text-black">
+                        {product?.productName?.replace(/boAt/gi, "").trim()}
+                      </h2>
+                      <p className="capitalize text-slate-500">
+                        {product?.category}
+                      </p>
+                    </div>
 
-                  <div className="flex flex-col w-full h-fit">
-                    <span className="flex gap-3">
-                      <p className="text-red-600 font-semibold">
-                        {displayINRCurrency(product?.sellingPrice)}
+                    <div className="flex flex-col w-full h-fit">
+                      <span className="flex gap-3">
+                        <p className="text-red-600 font-semibold">
+                          {displayINRCurrency(product?.sellingPrice)}
+                        </p>
+                        <p className="text-slate-500 line-through">
+                          {displayINRCurrency(product?.price)}
+                        </p>
+                      </span>
+                      <p className="text-green-500 font-medium mt-[-4px]">
+                        {discountCalculator(
+                          product?.price,
+                          product?.sellingPrice
+                        )}{" "}
+                        off
                       </p>
-                      <p className="text-slate-500 line-through">
-                        {displayINRCurrency(product?.price)}
-                      </p>
-                    </span>
-                    <p className="text-green-500 font-medium mt-[-4px]">
-                      {discountCalculator(
-                        product?.price,
-                        product?.sellingPrice
-                      )}{" "}
-                      off
-                    </p>
+                    </div>
+
+                    <button
+                      className="text-sm bg-red-600 hover:bg-red-700 h-8 text-white px-3 py-0.5 rounded-full"
+                      onClick={(e) => handleAddToCart(e, product?._id)}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
-
-                  <button
-                    className="text-sm bg-red-600 hover:bg-red-700 h-8 text-white px-3 py-0.5 rounded-full"
-                    onClick={(e) => handleAddToCart(e, product?._id)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
       </div>
     </div>
   );

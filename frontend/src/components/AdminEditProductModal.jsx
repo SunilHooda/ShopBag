@@ -86,7 +86,7 @@ const AdminEditProductModal = ({ onClose, productData, fetchData }) => {
 
   return (
     <div className="fixed w-full h-full z-50 bg-slate-200 bg-opacity-35 top-0 left-0 right-0 bottom-0 flex justify-center items-center">
-      <div className="bg-white p-4 rounded w-[95%] max-w-2xl h-full max-h-[80%] overflow-hidden ">
+      <div className="bg-white p-2 md:p-4 rounded w-[95%] max-w-2xl h-full max-h-[80%] overflow-hidden ">
         <div className="flex justify-between items-center pb-3">
           <h2 className="font-bold text-lg">Edit Product</h2>
           <div
@@ -98,7 +98,7 @@ const AdminEditProductModal = ({ onClose, productData, fetchData }) => {
         </div>
 
         <form
-          className="grid p-4 gap-2 h-full overflow-y-auto pb-5 productUploadForm"
+          className="grid p-1 md:p-4 gap-2 h-full overflow-y-auto pb-5 productUploadForm"
           onSubmit={handleSubmitProduct}
         >
           <label htmlFor="productName">Product Name :</label>
