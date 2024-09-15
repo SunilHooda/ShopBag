@@ -1,4 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(
+  sk_test_51PybasCCIYRKpwABEdHCFgWTDNEpUTHQoQUJMHLrErGJyHg89uy71MyuH3qpVqnNcXJEBOs5WUdfdjh3aFbdtqyJ00GtcZFQRv
+);
 const userModel = require("../../models/userModel");
 
 const paymentController = async (request, response) => {
