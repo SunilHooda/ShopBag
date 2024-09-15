@@ -1,4 +1,4 @@
-const stripe = require("../../config/stripe");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const userModel = require("../../models/userModel");
 
 const paymentController = async (request, response) => {
@@ -52,7 +52,7 @@ const paymentController = async (request, response) => {
     response.status(303).json(session);
   } catch (err) {
     response.json({
-      message: err.message || err,
+      message: `Payment Controller error ${err.message}` || err,
       error: true,
       success: false,
     });
