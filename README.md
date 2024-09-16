@@ -17,9 +17,8 @@ ShopBag is a E-commerce website using the MERN (MongoDB, Express, React, Node.js
 • Admin Panel: Includes an administrative panel for managing products, orders, and users, enabling easy updates to inventory and customer management. <br>
 • Responsive Design: Fully responsive layout using Tailwind CSS, providing an optimal shopping experience on both desktop and mobile devices. <br>
 <br>
-<br>
 
-<h1>Tech Used:</h1> <br>
+<h1>Tech Used:</h1> <br
 • HTML <br>
 • CSS <br>
 • JavaScript<br>
@@ -75,7 +74,7 @@ ShopBag is a E-commerce website using the MERN (MongoDB, Express, React, Node.js
 <img src="https://github.com/SunilHooda/ShopBag/blob/main/frontend/public/ScreenShots/Screenshot%20(294).png">
 <br>
 
-##Credentials for Admin Login
+## Credentials for Admin Login
 
-Email - testing@gmail.com
+Email - testing@gmail.com <br>
 Pass - testing@123
