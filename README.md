@@ -1,4 +1,4 @@
-# ShopBag - OONLINE SHOP
+# ShopBag - ONLINE SHOP
 
 ShopBag is a E-commerce website using the MERN (MongoDB, Express, React, Node.js) stack, integrated with Stripe for secure payment processing. The website allows users to browse products, add items to their cart, and complete purchases using Stripe's seamless checkout system. The frontend is built with React, styled with Tailwind CSS, and communicates with a Node.js and Express backend. MongoDB serves as the database, storing product, user, and order information. This integration ensures a smooth and safe shopping experience for customers.
 <br>
