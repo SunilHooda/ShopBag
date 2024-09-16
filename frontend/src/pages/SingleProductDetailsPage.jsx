@@ -8,6 +8,7 @@ import discountCalculator from "../helpers/discountCalculator";
 import RelatedProductSection from "../components/RelatedProductSection";
 import Context from "../context/context";
 import addToCart from "../helpers/addToCart";
+import scrollToTop from "../helpers/scrollToTop";
 
 const SingleProductDetailsPage = () => {
   const [data, setData] = useState({
@@ -81,6 +82,7 @@ const SingleProductDetailsPage = () => {
 
   useEffect(() => {
     fetchProductDetails();
+    scrollToTop();
   }, [params]);
 
   return (

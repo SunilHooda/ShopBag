@@ -49,9 +49,9 @@ function App() {
       <Context.Provider
         value={{ fetchUserDetails, cartProductCount, fetchCartProductsCount }}
       >
-        <ToastContainer position="top-center" autoClose={2000} />
+        <ToastContainer position="top-center" autoClose={1750} />
         <Header />
-        <main className="min-h-[calc(100vh-129px)]">
+        <main className=" min-h-[calc(100vh-152px)] md:min-h-[calc(100vh-129px)]">
           <Outlet />
         </main>
         <Footer />
@@ -61,6 +61,3 @@ function App() {
 }
 
 export default App;
-
-//Api secret = csPFMWUbGoPJdut1MfH5X1KqS4M
-//api key = 921944866882523
