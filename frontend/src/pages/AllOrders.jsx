@@ -68,7 +68,7 @@ const AllOrders = () => {
                       <img
                         src={product.image[0]}
                         alt="productImage"
-                        className="w-20 h-20 md:w-28 md:h-28 border rounded object-scale-down p-2 mix-blend-multiply"
+                        className="w-24 h-24 md:w-28 md:h-28 border rounded object-scale-down p-2 mix-blend-multiply"
                       />
                       <div>
                         <div className="font-medium text-lg text-ellipsis line-clamp-1 pr-2">
