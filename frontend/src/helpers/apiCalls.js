@@ -17,6 +17,10 @@ const apiCalls = {
     url: `${baseURL}/api/user-logout`,
     method: "get",
   },
+  resetPassword: {
+    url: `${baseURL}/api/reset-password`,
+    method: "post",
+  },
   allUser: {
     url: `${baseURL}/api/all-user`,
     method: "get",

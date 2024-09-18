@@ -7,8 +7,6 @@ async function userSignUpController(req, res) {
 
     const user = await userModel.findOne({ email });
 
-    console.log("user", user);
-
     if (user) {
       throw new Error("Already user exits.");
     }
@@ -16,12 +14,15 @@ async function userSignUpController(req, res) {
     if (!email) {
       throw new Error("Please provide email");
     }
+
     if (!password) {
       throw new Error("Please provide password");
     }
+
     if (!name) {
       throw new Error("Please provide name");
     }
+
     const salt = bcrypt.genSaltSync(10);
     const hashPassword = await bcrypt.hashSync(password, salt);
 

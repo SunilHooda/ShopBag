@@ -75,6 +75,7 @@ const Login = () => {
                   value={data.email}
                   onChange={handleOnChange}
                   className="w-full h-full outline-none bg-transparent"
+                  required
                 />
               </div>
             </div>
@@ -89,6 +90,7 @@ const Login = () => {
                   value={data.password}
                   onChange={handleOnChange}
                   className="w-full h-full outline-none bg-transparent"
+                  required
                 />
 
                 <div

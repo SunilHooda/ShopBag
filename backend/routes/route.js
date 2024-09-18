@@ -25,12 +25,14 @@ const paymentController = require("../controller/order/paymentController");
 const webhooks = require("../controller/order/webhooks");
 const orderController = require("../controller/order/orderController");
 const allOrderController = require("../controller/order/allOrderController");
+const userResetPasswordController = require("../controller/user/userResetPassword");
 
 //userApis
 router.post("/signup", userSignUpController);
 router.post("/login", userLoginController);
 router.get("/user-details", authToken, userDetailsController);
 router.get("/user-logout", userLogout);
+router.post("/reset-password", userResetPasswordController);
 
 //admin panel
 router.get("/all-user", authToken, allUser);
