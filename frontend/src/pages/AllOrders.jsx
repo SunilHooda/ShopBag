@@ -50,8 +50,16 @@ const AllOrders = () => {
 
   return (
     <div className="h-full md:h-[calc(100vh-137px)] md:overflow-y-scroll clientSideScrollbar">
-      {loading && <p>Loading...</p>}
-      {!data[0] && <p>No Order Available</p>}
+      {loading && (
+        <p className="mx-auto p-6 text-center font-medium text-xl">
+          Loading...
+        </p>
+      )}
+      {!data[0] && (
+        <p className="mx-auto p-6 text-center font-medium text-xl">
+          No Order Available
+        </p>
+      )}
 
       <div ref={ordersContainerRef} className="p-2 md:p-4 w-full">
         {data.map((item, index) => (

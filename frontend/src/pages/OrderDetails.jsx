@@ -25,8 +25,16 @@ const OrderDetails = () => {
 
   return (
     <div>
-      {loading && <p>Loading...</p>}
-      {!data[0] && <p>No Order Available</p>}
+      {loading && (
+        <p className="mx-auto p-6 text-center font-medium text-xl">
+          Loading...
+        </p>
+      )}
+      {!data[0] && (
+        <p className="mx-auto p-6 text-center font-medium text-xl">
+          No Order Available
+        </p>
+      )}
 
       <div className="mx-auto container p-2 md:p-4 lg:px-8">
         {data.map((item, index) => {
